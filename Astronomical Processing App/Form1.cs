@@ -19,8 +19,22 @@ namespace Astronomical_Processing_App
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            int[] randomData = new int[24];
+            Random rand = new Random();
+            for (int i = 0; i < randomData.Length; i++)
+            {
+                randomData[i] = rand.Next(10, 90);
+            }
 
+            foreach (int data in randomData)
+            {
+                listBox1.Items.Add(data);
+            }
         }
 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
