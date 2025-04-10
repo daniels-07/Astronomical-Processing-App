@@ -26,10 +26,14 @@ namespace Astronomical_Processing_App
                 randomData[i] = rand.Next(10, 90);
             }
 
-            foreach (int data in randomData)
+            displaydata1.Click += (s, args) =>
             {
-                listBox1.Items.Add(data);
-            }
+                displayData.Items.Clear();
+                for (int i = 0; i < randomData.Length; i++)
+                {
+                    displayData.Items.Add(randomData[i]);
+                }
+            };
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
