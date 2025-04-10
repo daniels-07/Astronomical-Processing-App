@@ -35,6 +35,7 @@
             this.mode_groupbox = new System.Windows.Forms.GroupBox();
             this.searchmode_btn = new System.Windows.Forms.RadioButton();
             this.editmode_btn = new System.Windows.Forms.RadioButton();
+            this.edit_input = new System.Windows.Forms.TextBox();
             this.mode_groupbox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,11 +109,20 @@
             this.editmode_btn.UseVisualStyleBackColor = true;
             this.editmode_btn.CheckedChanged += new System.EventHandler(this.editmode_btn_CheckedChanged);
             // 
+            // edit_input
+            // 
+            this.edit_input.Location = new System.Drawing.Point(193, 79);
+            this.edit_input.Name = "edit_input";
+            this.edit_input.Size = new System.Drawing.Size(120, 20);
+            this.edit_input.TabIndex = 9;
+            this.edit_input.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 240);
+            this.Controls.Add(this.edit_input);
             this.Controls.Add(this.mode_groupbox);
             this.Controls.Add(this.displaydata1);
             this.Controls.Add(this.btn_search);
@@ -137,6 +147,7 @@
         private System.Windows.Forms.GroupBox mode_groupbox;
         private System.Windows.Forms.RadioButton editmode_btn;
         private System.Windows.Forms.RadioButton searchmode_btn;
+        private System.Windows.Forms.TextBox edit_input;
     }
 }
 
