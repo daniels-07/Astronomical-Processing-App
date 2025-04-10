@@ -34,6 +34,22 @@ namespace Astronomical_Processing_App
                     displayData.Items.Add(randomData[i]);
                 }
             };
+            btn_search.Click += (s, args) =>
+            {
+                int index;
+                if (int.TryParse(txtboxInput.Text, out index) && index >= 0 && index < randomData.Length)
+                {
+                    displayData.Items.Clear();
+                    displayData.Items.Add(randomData[index]);
+                }
+                else
+                {
+                    displayData.Items.Add("Invalid input, please");
+                    //TEMPORARY SOLUTION
+                    displayData.Items.Add("enter an input between");
+                    displayData.Items.Add("0 and 23");
+                }
+            };
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
