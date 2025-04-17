@@ -36,6 +36,7 @@
             this.editmode_btn = new System.Windows.Forms.RadioButton();
             this.searchmode_btn = new System.Windows.Forms.RadioButton();
             this.edit_input = new System.Windows.Forms.TextBox();
+            this.sortmode_btn = new System.Windows.Forms.RadioButton();
             this.mode_groupbox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,11 +78,12 @@
             // mode_groupbox
             // 
             this.mode_groupbox.BackColor = System.Drawing.SystemColors.Control;
+            this.mode_groupbox.Controls.Add(this.sortmode_btn);
             this.mode_groupbox.Controls.Add(this.editmode_btn);
             this.mode_groupbox.Controls.Add(this.searchmode_btn);
             this.mode_groupbox.Location = new System.Drawing.Point(193, 106);
             this.mode_groupbox.Name = "mode_groupbox";
-            this.mode_groupbox.Size = new System.Drawing.Size(98, 73);
+            this.mode_groupbox.Size = new System.Drawing.Size(98, 87);
             this.mode_groupbox.TabIndex = 8;
             this.mode_groupbox.TabStop = false;
             this.mode_groupbox.Text = "Select mode";
@@ -118,6 +120,17 @@
             this.edit_input.TabIndex = 9;
             this.edit_input.Visible = false;
             // 
+            // sortmode_btn
+            // 
+            this.sortmode_btn.AutoSize = true;
+            this.sortmode_btn.Location = new System.Drawing.Point(6, 64);
+            this.sortmode_btn.Name = "sortmode_btn";
+            this.sortmode_btn.Size = new System.Drawing.Size(73, 17);
+            this.sortmode_btn.TabIndex = 2;
+            this.sortmode_btn.TabStop = true;
+            this.sortmode_btn.Text = "Sort mode";
+            this.sortmode_btn.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,6 +162,7 @@
         private System.Windows.Forms.RadioButton editmode_btn;
         private System.Windows.Forms.RadioButton searchmode_btn;
         private System.Windows.Forms.TextBox edit_input;
+        private System.Windows.Forms.RadioButton sortmode_btn;
     }
 }
 

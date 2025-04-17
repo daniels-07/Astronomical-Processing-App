@@ -15,7 +15,7 @@ namespace Astronomical_Processing_App
     public partial class Form1 : Form
     {
         int[] randomData = new int[24];
-        int max = 24;
+        static int max = 24;
         public Form1()
         {
             InitializeComponent();
@@ -48,6 +48,10 @@ namespace Astronomical_Processing_App
                 {
                     
                 }
+                else if (sortmode_btn.Checked)
+                {
+
+                }
             };
             editmode_btn.Click += (s, args) =>
             {
@@ -73,7 +77,7 @@ namespace Astronomical_Processing_App
         {
             int mid;
             int lowBound = 0;
-            int highBound = 24;
+            int highBound = max;
             int target;
             if (!(Int32.TryParse(txtboxInput.Text, out target)))
             {
