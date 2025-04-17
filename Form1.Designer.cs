@@ -33,8 +33,8 @@
             this.btn_search = new System.Windows.Forms.Button();
             this.displaydata1 = new System.Windows.Forms.Button();
             this.mode_groupbox = new System.Windows.Forms.GroupBox();
-            this.searchmode_btn = new System.Windows.Forms.RadioButton();
             this.editmode_btn = new System.Windows.Forms.RadioButton();
+            this.searchmode_btn = new System.Windows.Forms.RadioButton();
             this.edit_input = new System.Windows.Forms.TextBox();
             this.mode_groupbox.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,7 @@
             this.btn_search.TabIndex = 6;
             this.btn_search.Text = "Search";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // displaydata1
             // 
@@ -86,17 +87,6 @@
             this.mode_groupbox.Text = "Select mode";
             this.mode_groupbox.Enter += new System.EventHandler(this.mode_groupbox_Enter);
             // 
-            // searchmode_btn
-            // 
-            this.searchmode_btn.AutoSize = true;
-            this.searchmode_btn.Location = new System.Drawing.Point(6, 19);
-            this.searchmode_btn.Name = "searchmode_btn";
-            this.searchmode_btn.Size = new System.Drawing.Size(88, 17);
-            this.searchmode_btn.TabIndex = 0;
-            this.searchmode_btn.TabStop = true;
-            this.searchmode_btn.Text = "Search mode";
-            this.searchmode_btn.UseVisualStyleBackColor = true;
-            // 
             // editmode_btn
             // 
             this.editmode_btn.AutoSize = true;
@@ -108,6 +98,17 @@
             this.editmode_btn.Text = "Edit mode";
             this.editmode_btn.UseVisualStyleBackColor = true;
             this.editmode_btn.CheckedChanged += new System.EventHandler(this.editmode_btn_CheckedChanged);
+            // 
+            // searchmode_btn
+            // 
+            this.searchmode_btn.AutoSize = true;
+            this.searchmode_btn.Location = new System.Drawing.Point(6, 19);
+            this.searchmode_btn.Name = "searchmode_btn";
+            this.searchmode_btn.Size = new System.Drawing.Size(88, 17);
+            this.searchmode_btn.TabIndex = 0;
+            this.searchmode_btn.TabStop = true;
+            this.searchmode_btn.Text = "Search mode";
+            this.searchmode_btn.UseVisualStyleBackColor = true;
             // 
             // edit_input
             // 

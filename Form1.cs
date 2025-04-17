@@ -14,21 +14,22 @@ namespace Astronomical_Processing_App
 {
     public partial class Form1 : Form
     {
+        int[] randomData = new int[24];
+        int max = 24;
         public Form1()
         {
             InitializeComponent();
             searchmode_btn.Checked = true;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            int[] randomData = new int[24];
             Random rand = new Random();
             for (int i = 0; i < randomData.Length; i++)
             {
                 randomData[i] = rand.Next(10, 90);
             }
-
             displaydata1.Click += (s, args) =>
             {
                 displayData.Items.Clear();
@@ -41,25 +42,7 @@ namespace Astronomical_Processing_App
             {
                 if (searchmode_btn.Checked)
                 {
-                    int index;
-                    if (int.TryParse(txtboxInput.Text, out index) && index >= 0 && index < randomData.Length)
-                    {
-                        displayData.Items.Clear();
-                        displayData.Items.Add("Search successful!");
-                        displayData.Items.Add(randomData[index]);
-                    }
-                    else if (string.IsNullOrWhiteSpace(txtboxInput.Text))
-                    {
-                        displayData.Items.Clear();
-                        displayData.Items.Add("No input detected");
-                    }
-                    else
-                    {
-                        displayData.Items.Add("Invalid input, please");
-                        //TEMPORARY SOLUTION
-                        displayData.Items.Add("enter an input between");
-                        displayData.Items.Add("0 and 23");
-                    }
+                    binary_Search(txtboxInput.Text, EventArgs.Empty);
                 }
                 else if (editmode_btn.Checked)
                 {
@@ -84,6 +67,66 @@ namespace Astronomical_Processing_App
                     edit_input.Visible = false;
                 };
             };
+        }
+
+        private void binary_Search(object sender, EventArgs e)
+        {
+            int mid;
+            int lowBound = 0;
+            int highBound = 24;
+            int target;
+            if (!(Int32.TryParse(txtboxInput.Text, out target)))
+            {
+                MessageBox.Show("You must enter an integer");
+                return;
+            }
+            while (lowBound <= highBound) // Check “<” or “<=”
+            {
+                // Display list
+                ShowArray(lowBound, highBound);
+                // Find the mid-point
+                mid = (lowBound + highBound) / 2;
+                // Pause with a messagebox
+                MessageBox.Show("Low:" + lowBound + " Mid:" + mid +
+               " High:" + highBound);
+                if (randomData[mid] == target)
+                {
+                    // Target has been found
+                    displayData.Items.Add("Found at index " + mid);
+                    return;
+                }
+                else if (randomData[mid] >= target)
+                {
+                    highBound = mid - 1;
+                }
+                else
+                {
+                    lowBound = mid + 1;
+                }
+            }
+            MessageBox.Show("Not Found, try again.");
+        }
+        // Method to display Array
+        private void ShowArray(int low, int high)
+        {
+            displayData.Items.Clear();
+            for (int i = low; i < high; i++)
+            {
+                displayData.Items.Add(randomData[i]);
+            }
+        }
+        // Method to fill Array with random numbers
+        private void FillArray()
+        {
+            // Create a random number
+            Random rand = new Random();
+            for (int i = 0; i < max; i++)
+            {
+                // Random number 0..100
+                randomData[i] = rand.Next(100);
+            }
+            // Use the build in sort method
+            Array.Sort(randomData);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,6 +160,11 @@ namespace Astronomical_Processing_App
         }
 
         private void editmode_btn_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
         {
 
         }
