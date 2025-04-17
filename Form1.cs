@@ -60,6 +60,7 @@ namespace Astronomical_Processing_App
                     btn_search.Text = "Edit";
                     txtboxInput.Text = "Enter element:";
                     edit_input.Visible = true;
+                    display_searchbox.Visible = false;
                 };
             };
             searchmode_btn.Click += (s, args) =>
@@ -69,7 +70,18 @@ namespace Astronomical_Processing_App
                     btn_search.Text = "Search";
                     txtboxInput.Text = "";
                     edit_input.Visible = false;
+                    display_searchbox.Visible = true;
                 };
+            };
+            sortmode_btn.Click += (s, args) =>
+            {
+                if (sortmode_btn.Checked)
+                {
+                    btn_search.Text = "Sort";
+                    txtboxInput.Text = "";
+                    edit_input.Visible = false; ;
+                    display_searchbox.Visible = false;
+                }
             };
         }
 
@@ -81,7 +93,7 @@ namespace Astronomical_Processing_App
             int target;
             if (!(Int32.TryParse(txtboxInput.Text, out target)))
             {
-                MessageBox.Show("You must enter an integer");
+                display_searchbox.Text = "You must enter an integer";
                 return;
             }
             while (lowBound <= highBound) // Check “<” or “<=”
@@ -103,12 +115,12 @@ namespace Astronomical_Processing_App
                 {
                     highBound = mid - 1;
                 }
-                else
+                else if (randomData[mid] <= target)
                 {
                     lowBound = mid + 1;
                 }
             }
-            MessageBox.Show("Not Found, try again.");
+            display_searchbox.Text = "Not Found, try again.";
         }
         // Method to display Array
         private void ShowArray(int low, int high)

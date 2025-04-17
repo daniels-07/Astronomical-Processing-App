@@ -37,6 +37,7 @@
             this.searchmode_btn = new System.Windows.Forms.RadioButton();
             this.edit_input = new System.Windows.Forms.TextBox();
             this.sortmode_btn = new System.Windows.Forms.RadioButton();
+            this.display_searchbox = new System.Windows.Forms.TextBox();
             this.mode_groupbox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,11 +132,20 @@
             this.sortmode_btn.Text = "Sort mode";
             this.sortmode_btn.UseVisualStyleBackColor = true;
             // 
+            // display_searchbox
+            // 
+            this.display_searchbox.Location = new System.Drawing.Point(22, 173);
+            this.display_searchbox.Name = "display_searchbox";
+            this.display_searchbox.ReadOnly = true;
+            this.display_searchbox.Size = new System.Drawing.Size(120, 20);
+            this.display_searchbox.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 240);
+            this.Controls.Add(this.display_searchbox);
             this.Controls.Add(this.edit_input);
             this.Controls.Add(this.mode_groupbox);
             this.Controls.Add(this.displaydata1);
@@ -163,6 +173,7 @@
         private System.Windows.Forms.RadioButton searchmode_btn;
         private System.Windows.Forms.TextBox edit_input;
         private System.Windows.Forms.RadioButton sortmode_btn;
+        private System.Windows.Forms.TextBox display_searchbox;
     }
 }
 
