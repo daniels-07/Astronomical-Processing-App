@@ -145,6 +145,11 @@ namespace Astronomical_Processing_App
             Array.Sort(randomData);
         }
 
+        private void bubble_sort(object sender, EventArgs e)
+        {
+
+        }
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
