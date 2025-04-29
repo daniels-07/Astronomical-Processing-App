@@ -109,7 +109,7 @@ namespace Astronomical_Processing_App
                 if (randomData[mid] == target)
                 {
                     // Target has been found
-                    display_searchbox.Text = ("Found at index " + mid);
+                    displayData.Items.Add("Found at index " + mid);
                     return;
                 }
                 else if (randomData[mid] >= target)
