@@ -44,24 +44,29 @@
             // displayData
             // 
             this.displayData.FormattingEnabled = true;
-            this.displayData.Location = new System.Drawing.Point(22, 53);
+            this.displayData.ItemHeight = 16;
+            this.displayData.Location = new System.Drawing.Point(29, 65);
+            this.displayData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.displayData.Name = "displayData";
-            this.displayData.Size = new System.Drawing.Size(120, 95);
+            this.displayData.Size = new System.Drawing.Size(159, 116);
             this.displayData.TabIndex = 0;
             this.displayData.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // txtboxInput
             // 
-            this.txtboxInput.Location = new System.Drawing.Point(193, 53);
+            this.txtboxInput.Location = new System.Drawing.Point(257, 65);
+            this.txtboxInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtboxInput.Name = "txtboxInput";
-            this.txtboxInput.Size = new System.Drawing.Size(120, 20);
+            this.txtboxInput.Size = new System.Drawing.Size(159, 22);
             this.txtboxInput.TabIndex = 2;
+            this.txtboxInput.TextChanged += new System.EventHandler(this.txtboxInput_TextChanged);
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(193, 24);
+            this.btn_search.Location = new System.Drawing.Point(257, 30);
+            this.btn_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(75, 23);
+            this.btn_search.Size = new System.Drawing.Size(100, 28);
             this.btn_search.TabIndex = 6;
             this.btn_search.Text = "Search";
             this.btn_search.UseVisualStyleBackColor = true;
@@ -69,9 +74,10 @@
             // 
             // displaydata1
             // 
-            this.displaydata1.Location = new System.Drawing.Point(22, 24);
+            this.displaydata1.Location = new System.Drawing.Point(29, 30);
+            this.displaydata1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.displaydata1.Name = "displaydata1";
-            this.displaydata1.Size = new System.Drawing.Size(75, 23);
+            this.displaydata1.Size = new System.Drawing.Size(100, 28);
             this.displaydata1.TabIndex = 7;
             this.displaydata1.Text = "Display Data";
             this.displaydata1.UseVisualStyleBackColor = true;
@@ -82,9 +88,11 @@
             this.mode_groupbox.Controls.Add(this.sortmode_btn);
             this.mode_groupbox.Controls.Add(this.editmode_btn);
             this.mode_groupbox.Controls.Add(this.searchmode_btn);
-            this.mode_groupbox.Location = new System.Drawing.Point(193, 106);
+            this.mode_groupbox.Location = new System.Drawing.Point(257, 130);
+            this.mode_groupbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mode_groupbox.Name = "mode_groupbox";
-            this.mode_groupbox.Size = new System.Drawing.Size(98, 87);
+            this.mode_groupbox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mode_groupbox.Size = new System.Drawing.Size(131, 107);
             this.mode_groupbox.TabIndex = 8;
             this.mode_groupbox.TabStop = false;
             this.mode_groupbox.Text = "Select mode";
@@ -93,9 +101,10 @@
             // sortmode_btn
             // 
             this.sortmode_btn.AutoSize = true;
-            this.sortmode_btn.Location = new System.Drawing.Point(6, 64);
+            this.sortmode_btn.Location = new System.Drawing.Point(8, 79);
+            this.sortmode_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sortmode_btn.Name = "sortmode_btn";
-            this.sortmode_btn.Size = new System.Drawing.Size(73, 17);
+            this.sortmode_btn.Size = new System.Drawing.Size(90, 20);
             this.sortmode_btn.TabIndex = 2;
             this.sortmode_btn.TabStop = true;
             this.sortmode_btn.Text = "Sort mode";
@@ -104,9 +113,10 @@
             // editmode_btn
             // 
             this.editmode_btn.AutoSize = true;
-            this.editmode_btn.Location = new System.Drawing.Point(6, 42);
+            this.editmode_btn.Location = new System.Drawing.Point(8, 52);
+            this.editmode_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editmode_btn.Name = "editmode_btn";
-            this.editmode_btn.Size = new System.Drawing.Size(72, 17);
+            this.editmode_btn.Size = new System.Drawing.Size(89, 20);
             this.editmode_btn.TabIndex = 1;
             this.editmode_btn.TabStop = true;
             this.editmode_btn.Text = "Edit mode";
@@ -116,9 +126,10 @@
             // searchmode_btn
             // 
             this.searchmode_btn.AutoSize = true;
-            this.searchmode_btn.Location = new System.Drawing.Point(6, 19);
+            this.searchmode_btn.Location = new System.Drawing.Point(8, 23);
+            this.searchmode_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchmode_btn.Name = "searchmode_btn";
-            this.searchmode_btn.Size = new System.Drawing.Size(88, 17);
+            this.searchmode_btn.Size = new System.Drawing.Size(109, 20);
             this.searchmode_btn.TabIndex = 0;
             this.searchmode_btn.TabStop = true;
             this.searchmode_btn.Text = "Search mode";
@@ -126,26 +137,28 @@
             // 
             // edit_input
             // 
-            this.edit_input.Location = new System.Drawing.Point(193, 79);
+            this.edit_input.Location = new System.Drawing.Point(257, 97);
+            this.edit_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.edit_input.Name = "edit_input";
-            this.edit_input.Size = new System.Drawing.Size(120, 20);
+            this.edit_input.Size = new System.Drawing.Size(159, 22);
             this.edit_input.TabIndex = 9;
             this.edit_input.Visible = false;
             // 
             // display_searchbox
             // 
-            this.display_searchbox.Location = new System.Drawing.Point(22, 173);
+            this.display_searchbox.Location = new System.Drawing.Point(29, 213);
+            this.display_searchbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.display_searchbox.Name = "display_searchbox";
             this.display_searchbox.ReadOnly = true;
-            this.display_searchbox.Size = new System.Drawing.Size(120, 20);
+            this.display_searchbox.Size = new System.Drawing.Size(159, 22);
             this.display_searchbox.TabIndex = 10;
             this.display_searchbox.TextChanged += new System.EventHandler(this.display_searchbox_TextChanged);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 240);
+            this.ClientSize = new System.Drawing.Size(464, 295);
             this.Controls.Add(this.display_searchbox);
             this.Controls.Add(this.edit_input);
             this.Controls.Add(this.mode_groupbox);
@@ -153,6 +166,7 @@
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.txtboxInput);
             this.Controls.Add(this.displayData);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

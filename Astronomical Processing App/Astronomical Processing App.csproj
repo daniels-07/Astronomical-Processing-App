@@ -46,17 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C:\Users\30069589\source\repos\Astronomical-Processing-App\Form1.cs">
+    <Compile Include="C:\Users\danie\source\repos\Astronomical-Processing-App\Form1.cs">
       <SubType>Form</SubType>
       <Link>Form1.cs</Link>
     </Compile>
-    <Compile Include="C:\Users\30069589\source\repos\Astronomical-Processing-App\Form1.Designer.cs">
+    <Compile Include="C:\Users\danie\source\repos\Astronomical-Processing-App\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
       <Link>Form1.Designer.cs</Link>
     </Compile>
-    <Compile Include="C:\Users\30069589\source\repos\Astronomical-Processing-App\Program.cs" />
+    <Compile Include="C:\Users\danie\source\repos\Astronomical-Processing-App\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="C:\Users\30069589\source\repos\Astronomical-Processing-App\Form1.resx">
+    <EmbeddedResource Include="C:\Users\danie\source\repos\Astronomical-Processing-App\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <Link>Form1.resx</Link>
     </EmbeddedResource>

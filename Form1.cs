@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -47,11 +48,11 @@ namespace Astronomical_Processing_App
                 }
                 else if (editmode_btn.Checked)
                 {
-                    
+
                 }
                 else if (sortmode_btn.Checked)
                 {
-
+                    bubble_sort(null, EventArgs.Empty);
                 }
             };
             editmode_btn.Click += (s, args) =>
@@ -72,7 +73,9 @@ namespace Astronomical_Processing_App
                     txtboxInput.Text = "";
                     edit_input.Visible = false;
                     display_searchbox.Visible = true;
-                };
+                    txtboxInput.ReadOnly = false;
+                }
+                ;
             };
             sortmode_btn.Click += (s, args) =>
             {
@@ -80,8 +83,10 @@ namespace Astronomical_Processing_App
                 {
                     btn_search.Text = "Sort";
                     txtboxInput.Text = "";
-                    edit_input.Visible = false; ;
+                    edit_input.Visible = true; ;
                     display_searchbox.Visible = false;
+                    edit_input.ReadOnly = true;
+                    txtboxInput.ReadOnly = true;
                 }
             };
         }
@@ -132,26 +137,40 @@ namespace Astronomical_Processing_App
                 displayData.Items.Add(randomData[i]);
             }
         }
-        // Method to fill Array with random numbers
-        private void FillArray()
-        {
-            // Create a random number
-            Random rand = new Random();
-            for (int i = 0; i < max; i++)
-            {
-                // Random number 0..100
-                randomData[i] = rand.Next(100);
-            }
-            // Use the build in sort method
-            Array.Sort(randomData);
-        }
-
         private void bubble_sort(object sender, EventArgs e)
         {
-
+            int temp = 0;
+            for (int outer = 0; outer < max; outer++)
+            {
+                for (int inner = 0; inner < max - 1; inner++)
+                {
+                    if (randomData[inner] > randomData[inner + 1])
+                    {
+                        // Swap routine
+                        temp = randomData[inner + 1];
+                        randomData[inner + 1] = randomData[inner];
+                        randomData[inner] = temp;
+                    }
+                    // Code to demonstrate the bubble sort
+                    ShowArray();
+                    Application.DoEvents();
+                    Thread.Sleep(100);
+                    txtboxInput.Text = inner.ToString();
+                    edit_input.Text = outer.ToString();
+                }
+            }
+        }
+        // Method to display array
+        private void ShowArray()
+        {
+            displayData.Items.Clear();
+            for (int i = 0; i < max; i++)
+            {
+                displayData.Items.Add(randomData[i]);
+            }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -192,6 +211,11 @@ namespace Astronomical_Processing_App
         }
 
         private void display_searchbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtboxInput_TextChanged(object sender, EventArgs e)
         {
 
         }
