@@ -33,10 +33,10 @@
             this.btn_search = new System.Windows.Forms.Button();
             this.displaydata1 = new System.Windows.Forms.Button();
             this.mode_groupbox = new System.Windows.Forms.GroupBox();
+            this.sortmode_btn = new System.Windows.Forms.RadioButton();
             this.editmode_btn = new System.Windows.Forms.RadioButton();
             this.searchmode_btn = new System.Windows.Forms.RadioButton();
             this.edit_input = new System.Windows.Forms.TextBox();
-            this.sortmode_btn = new System.Windows.Forms.RadioButton();
             this.display_searchbox = new System.Windows.Forms.TextBox();
             this.mode_groupbox.SuspendLayout();
             this.SuspendLayout();
@@ -90,6 +90,17 @@
             this.mode_groupbox.Text = "Select mode";
             this.mode_groupbox.Enter += new System.EventHandler(this.mode_groupbox_Enter);
             // 
+            // sortmode_btn
+            // 
+            this.sortmode_btn.AutoSize = true;
+            this.sortmode_btn.Location = new System.Drawing.Point(6, 64);
+            this.sortmode_btn.Name = "sortmode_btn";
+            this.sortmode_btn.Size = new System.Drawing.Size(73, 17);
+            this.sortmode_btn.TabIndex = 2;
+            this.sortmode_btn.TabStop = true;
+            this.sortmode_btn.Text = "Sort mode";
+            this.sortmode_btn.UseVisualStyleBackColor = true;
+            // 
             // editmode_btn
             // 
             this.editmode_btn.AutoSize = true;
@@ -121,17 +132,6 @@
             this.edit_input.TabIndex = 9;
             this.edit_input.Visible = false;
             // 
-            // sortmode_btn
-            // 
-            this.sortmode_btn.AutoSize = true;
-            this.sortmode_btn.Location = new System.Drawing.Point(6, 64);
-            this.sortmode_btn.Name = "sortmode_btn";
-            this.sortmode_btn.Size = new System.Drawing.Size(73, 17);
-            this.sortmode_btn.TabIndex = 2;
-            this.sortmode_btn.TabStop = true;
-            this.sortmode_btn.Text = "Sort mode";
-            this.sortmode_btn.UseVisualStyleBackColor = true;
-            // 
             // display_searchbox
             // 
             this.display_searchbox.Location = new System.Drawing.Point(22, 173);
@@ -139,6 +139,7 @@
             this.display_searchbox.ReadOnly = true;
             this.display_searchbox.Size = new System.Drawing.Size(120, 20);
             this.display_searchbox.TabIndex = 10;
+            this.display_searchbox.TextChanged += new System.EventHandler(this.display_searchbox_TextChanged);
             // 
             // Form1
             // 

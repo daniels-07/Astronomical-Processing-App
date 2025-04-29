@@ -21,6 +21,7 @@ namespace Astronomical_Processing_App
             InitializeComponent();
             searchmode_btn.Checked = true;
 
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -108,7 +109,7 @@ namespace Astronomical_Processing_App
                 if (randomData[mid] == target)
                 {
                     // Target has been found
-                    displayData.Items.Add("Found at index " + mid);
+                    display_searchbox.Text = ("Found at index " + mid);
                     return;
                 }
                 else if (randomData[mid] >= target)
@@ -186,6 +187,11 @@ namespace Astronomical_Processing_App
         }
 
         private void btn_search_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void display_searchbox_TextChanged(object sender, EventArgs e)
         {
 
         }
