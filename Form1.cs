@@ -91,7 +91,7 @@ namespace Astronomical_Processing_App
             };
         }
 
-        private void binary_Search(object sender, EventArgs e)
+        private void binary_Search(object sender, EventArgs e) //REWRITE THIS METHOD
         {
             int mid;
             int lowBound = 0;
@@ -137,7 +137,7 @@ namespace Astronomical_Processing_App
                 displayData.Items.Add(randomData[i]);
             }
         }
-        private void bubble_sort(object sender, EventArgs e)
+        private void bubble_sort(object sender, EventArgs e) //REWRITE THIS METHOD
         {
             int temp = 0;
             for (int outer = 0; outer < max; outer++)
