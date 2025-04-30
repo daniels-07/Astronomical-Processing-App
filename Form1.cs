@@ -60,11 +60,17 @@ namespace Astronomical_Processing_App
                 if (editmode_btn.Checked)
                 {
                     btn_search.Text = "Edit";
-                    txtboxInput.Text = "Enter element:";
+                    txtboxInput.Text = "";
+                    edit_input.Text = "";
                     edit_input.Visible = true;
                     display_searchbox.Visible = true;
                     txtboxInput.ReadOnly = false;
                     edit_input.ReadOnly = false;
+                    index_label.Visible = true;
+                    value_label.Visible = true;
+                    warning_label.Visible = false;
+                    txtboxInput.Location = new Point(193, 65);
+                    edit_input.Location = new Point(193, 100);
                 }
                 ;
             };
@@ -77,6 +83,10 @@ namespace Astronomical_Processing_App
                     edit_input.Visible = false;
                     display_searchbox.Visible = true;
                     txtboxInput.ReadOnly = false;
+                    index_label.Visible = false;
+                    value_label.Visible= false;
+                    warning_label.Visible = false;
+                    txtboxInput.Location = new Point(193, 53);
                 }
                 ;
             };
@@ -86,15 +96,20 @@ namespace Astronomical_Processing_App
                 {
                     btn_search.Text = "Sort";
                     txtboxInput.Text = "";
+                    edit_input.Text = "";
                     edit_input.Visible = true; ;
                     display_searchbox.Visible = false;
                     edit_input.ReadOnly = true;
                     txtboxInput.ReadOnly = true;
+                    index_label.Visible = false;
+                    value_label.Visible = false;
+                    warning_label.Visible = false;
+                    txtboxInput.Location = new Point(193, 53);
+                    edit_input.Location = new Point(193, 83);
                 }
             };
         }
-
-        private void binary_Search(object sender, EventArgs e) //REWRITE THIS METHOD
+        private void binary_Search(object sender, EventArgs e) 
         {
             int mid;
             int lowBound = 0;
@@ -108,7 +123,7 @@ namespace Astronomical_Processing_App
             while (lowBound <= highBound) // Check “<” or “<=”
             {
                 // Display list
-                ShowArray(lowBound, highBound);
+                ShowArrayRange(lowBound, highBound);
                 // Find the mid-point
                 mid = (lowBound + highBound) / 2;
                 // Pause with a messagebox
@@ -132,7 +147,7 @@ namespace Astronomical_Processing_App
             display_searchbox.Text = "Not Found, try again.";
         }
         // Method to display Array
-        private void ShowArray(int low, int high)
+        private void ShowArrayRange(int low, int high)
         {
             displayData.Items.Clear();
             for (int i = low; i < high; i++)
@@ -140,7 +155,7 @@ namespace Astronomical_Processing_App
                 displayData.Items.Add(randomData[i]);
             }
         }
-        private void bubble_sort(object sender, EventArgs e) //REWRITE THIS METHOD
+        private void bubble_sort(object sender, EventArgs e) 
         {
             int temp = 0;
             for (int outer = 0; outer < max; outer++)
@@ -173,34 +188,32 @@ namespace Astronomical_Processing_App
         }
         private void editArray(object sender, EventArgs e)
         {
-            int index;
-
-            if (Int32.TryParse(txtboxInput.Text, out index))
+            //Parse the input from txtboxinput
+            if (!(Int32.TryParse(txtboxInput.Text, out int index)))
             {
-                if (Int32.TryParse(edit_input.Text, out int value))
-                {
-                    if (index >= 0 && index < max)
-                    {
-                        randomData[index] = value;
-                        displayData.Items.Clear();
-                        for (int i = 0; i < max; i++)
-                        {
-                            displayData.Items.Add(randomData[i]);
-                        }
-                    }
-                    else
-                    {
-                        display_searchbox.Text="Index out of range";
-                    }
-                }
-                else
-                {
-                    display_searchbox.Text="Invalid input";
-                }
+                display_searchbox.Text = "You must enter an integer";
+                return;
             }
+            //Parse the input from edit_input
+            if (!(Int32.TryParse(edit_input.Text, out int value)))
+            {
+                display_searchbox.Text = "You must enter an integer";
+                return;
+            }
+            //Validate the index
+            if (index < 0 || index >= max)
+            {
+                display_searchbox.Text = "Index out of range";
+                return;
+            }
+            //Update the array
+            randomData[index] = value;
+
+            //Display the updated array
+            ShowArray();
         }
 
-private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -251,6 +264,11 @@ private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         }
 
         private void edit_input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void value_label_Click(object sender, EventArgs e)
         {
 
         }
