@@ -46,7 +46,7 @@
             this.displayData.FormattingEnabled = true;
             this.displayData.ItemHeight = 16;
             this.displayData.Location = new System.Drawing.Point(29, 65);
-            this.displayData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.displayData.Margin = new System.Windows.Forms.Padding(4);
             this.displayData.Name = "displayData";
             this.displayData.Size = new System.Drawing.Size(159, 116);
             this.displayData.TabIndex = 0;
@@ -55,7 +55,7 @@
             // txtboxInput
             // 
             this.txtboxInput.Location = new System.Drawing.Point(257, 65);
-            this.txtboxInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxInput.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxInput.Name = "txtboxInput";
             this.txtboxInput.Size = new System.Drawing.Size(159, 22);
             this.txtboxInput.TabIndex = 2;
@@ -64,7 +64,7 @@
             // btn_search
             // 
             this.btn_search.Location = new System.Drawing.Point(257, 30);
-            this.btn_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_search.Margin = new System.Windows.Forms.Padding(4);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(100, 28);
             this.btn_search.TabIndex = 6;
@@ -75,7 +75,7 @@
             // displaydata1
             // 
             this.displaydata1.Location = new System.Drawing.Point(29, 30);
-            this.displaydata1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.displaydata1.Margin = new System.Windows.Forms.Padding(4);
             this.displaydata1.Name = "displaydata1";
             this.displaydata1.Size = new System.Drawing.Size(100, 28);
             this.displaydata1.TabIndex = 7;
@@ -89,9 +89,9 @@
             this.mode_groupbox.Controls.Add(this.editmode_btn);
             this.mode_groupbox.Controls.Add(this.searchmode_btn);
             this.mode_groupbox.Location = new System.Drawing.Point(257, 130);
-            this.mode_groupbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mode_groupbox.Margin = new System.Windows.Forms.Padding(4);
             this.mode_groupbox.Name = "mode_groupbox";
-            this.mode_groupbox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mode_groupbox.Padding = new System.Windows.Forms.Padding(4);
             this.mode_groupbox.Size = new System.Drawing.Size(131, 107);
             this.mode_groupbox.TabIndex = 8;
             this.mode_groupbox.TabStop = false;
@@ -102,7 +102,7 @@
             // 
             this.sortmode_btn.AutoSize = true;
             this.sortmode_btn.Location = new System.Drawing.Point(8, 79);
-            this.sortmode_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sortmode_btn.Margin = new System.Windows.Forms.Padding(4);
             this.sortmode_btn.Name = "sortmode_btn";
             this.sortmode_btn.Size = new System.Drawing.Size(90, 20);
             this.sortmode_btn.TabIndex = 2;
@@ -114,7 +114,7 @@
             // 
             this.editmode_btn.AutoSize = true;
             this.editmode_btn.Location = new System.Drawing.Point(8, 52);
-            this.editmode_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editmode_btn.Margin = new System.Windows.Forms.Padding(4);
             this.editmode_btn.Name = "editmode_btn";
             this.editmode_btn.Size = new System.Drawing.Size(89, 20);
             this.editmode_btn.TabIndex = 1;
@@ -127,7 +127,7 @@
             // 
             this.searchmode_btn.AutoSize = true;
             this.searchmode_btn.Location = new System.Drawing.Point(8, 23);
-            this.searchmode_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchmode_btn.Margin = new System.Windows.Forms.Padding(4);
             this.searchmode_btn.Name = "searchmode_btn";
             this.searchmode_btn.Size = new System.Drawing.Size(109, 20);
             this.searchmode_btn.TabIndex = 0;
@@ -138,16 +138,17 @@
             // edit_input
             // 
             this.edit_input.Location = new System.Drawing.Point(257, 97);
-            this.edit_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.edit_input.Margin = new System.Windows.Forms.Padding(4);
             this.edit_input.Name = "edit_input";
             this.edit_input.Size = new System.Drawing.Size(159, 22);
             this.edit_input.TabIndex = 9;
             this.edit_input.Visible = false;
+            this.edit_input.TextChanged += new System.EventHandler(this.edit_input_TextChanged);
             // 
             // display_searchbox
             // 
             this.display_searchbox.Location = new System.Drawing.Point(29, 213);
-            this.display_searchbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.display_searchbox.Margin = new System.Windows.Forms.Padding(4);
             this.display_searchbox.Name = "display_searchbox";
             this.display_searchbox.ReadOnly = true;
             this.display_searchbox.Size = new System.Drawing.Size(159, 22);
@@ -166,7 +167,7 @@
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.txtboxInput);
             this.Controls.Add(this.displayData);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -48,7 +48,7 @@ namespace Astronomical_Processing_App
                 }
                 else if (editmode_btn.Checked)
                 {
-
+                    editArray(null, EventArgs.Empty);
                 }
                 else if (sortmode_btn.Checked)
                 {
@@ -62,7 +62,7 @@ namespace Astronomical_Processing_App
                     btn_search.Text = "Edit";
                     txtboxInput.Text = "Enter element:";
                     edit_input.Visible = true;
-                    display_searchbox.Visible = false;
+                    display_searchbox.Visible = true;
                     txtboxInput.ReadOnly = false;
                     edit_input.ReadOnly = false;
                 }
@@ -174,24 +174,30 @@ namespace Astronomical_Processing_App
         private void editArray(object sender, EventArgs e)
         {
             int index;
-            if (!(Int32.TryParse(edit_input.Text, out index)))
+
+            if (Int32.TryParse(txtboxInput.Text, out index))
             {
-                display_searchbox.Text = "You must enter an integer";
-                return;
+                if (Int32.TryParse(edit_input.Text, out int value))
+                {
+                    if (index >= 0 && index < max)
+                    {
+                        randomData[index] = value;
+                        displayData.Items.Clear();
+                        for (int i = 0; i < max; i++)
+                        {
+                            displayData.Items.Add(randomData[i]);
+                        }
+                    }
+                    else
+                    {
+                        display_searchbox.Text="Index out of range";
+                    }
+                }
+                else
+                {
+                    display_searchbox.Text="Invalid input";
+                }
             }
-            if (index < 0 || index >= max)
-            {
-                display_searchbox.Text = "Index out of range";
-                return;
-            }
-            int value;
-            if (!(Int32.TryParse(txtboxInput.Text, out value)))
-            {
-                display_searchbox.Text = "You must enter an integer";
-                return;
-            }
-            randomData[index] = value;
-            ShowArray();
         }
 
 private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -240,6 +246,11 @@ private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         }
 
         private void txtboxInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void edit_input_TextChanged(object sender, EventArgs e)
         {
 
         }
