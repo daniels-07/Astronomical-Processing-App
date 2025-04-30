@@ -63,7 +63,10 @@ namespace Astronomical_Processing_App
                     txtboxInput.Text = "Enter element:";
                     edit_input.Visible = true;
                     display_searchbox.Visible = false;
-                };
+                    txtboxInput.ReadOnly = false;
+                    edit_input.ReadOnly = false;
+                }
+                ;
             };
             searchmode_btn.Click += (s, args) =>
             {
@@ -154,7 +157,6 @@ namespace Astronomical_Processing_App
                     // Code to demonstrate the bubble sort
                     ShowArray();
                     Application.DoEvents();
-                    Thread.Sleep(100);
                     txtboxInput.Text = inner.ToString();
                     edit_input.Text = outer.ToString();
                 }
@@ -168,6 +170,28 @@ namespace Astronomical_Processing_App
             {
                 displayData.Items.Add(randomData[i]);
             }
+        }
+        private void editArray(object sender, EventArgs e)
+        {
+            int index;
+            if (!(Int32.TryParse(edit_input.Text, out index)))
+            {
+                display_searchbox.Text = "You must enter an integer";
+                return;
+            }
+            if (index < 0 || index >= max)
+            {
+                display_searchbox.Text = "Index out of range";
+                return;
+            }
+            int value;
+            if (!(Int32.TryParse(txtboxInput.Text, out value)))
+            {
+                display_searchbox.Text = "You must enter an integer";
+                return;
+            }
+            randomData[index] = value;
+            ShowArray();
         }
 
 private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
