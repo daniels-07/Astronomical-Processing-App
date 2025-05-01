@@ -11,6 +11,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Daniel Shadbolt, Sprint 1
+// Date: 1/05/2025
+// Version: 1.0
+// Astronomical Processing Data
+// This program randomly generates data to simulate data gathered by an observatory which can be sorted, edited and searched, the data is stored in an array with 24 elements.
+
+
 namespace Astronomical_Processing_App
 {
     public partial class Form1 : Form
