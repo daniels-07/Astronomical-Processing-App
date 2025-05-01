@@ -92,7 +92,7 @@ namespace Astronomical_Processing_App
                     txtboxInput.ReadOnly = false;
                     index_label.Visible = false;
                     value_label.Visible= false;
-                    warning_label.Visible = false;
+                    warning_label.Visible = true;
                     txtboxInput.Location = new Point(193, 53);
                 }
                 ;
@@ -133,13 +133,10 @@ namespace Astronomical_Processing_App
                 ShowArrayRange(lowBound, highBound);
                 // Find the mid-point
                 mid = (lowBound + highBound) / 2;
-                // Pause with a messagebox
-                MessageBox.Show("Low:" + lowBound + " Mid:" + mid +
-               " High:" + highBound);
                 if (randomData[mid] == target)
                 {
                     // Target has been found
-                    displayData.Items.Add("Found at index " + mid);
+                    display_searchbox.Text = "Found at index " + mid;
                     return;
                 }
                 else if (randomData[mid] >= target)
