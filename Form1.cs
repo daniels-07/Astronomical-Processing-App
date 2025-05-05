@@ -24,6 +24,7 @@ namespace Astronomical_Processing_App
     {
         int[] randomData = new int[24];
         static int max = 24;
+        bool is_sorted = false;
         public Form1()
         {
             InitializeComponent();
@@ -74,8 +75,9 @@ namespace Astronomical_Processing_App
                     txtboxInput.ReadOnly = false;
                     edit_input.ReadOnly = false;
                     index_label.Visible = true;
+                    txtbox_search.ReadOnly = true;
+                    txtbox_search.Visible = false;
                     value_label.Visible = true;
-                    warning_label.Visible = false;
                     txtboxInput.Location = new Point(193, 65);
                     edit_input.Location = new Point(193, 100);
                 }
@@ -89,10 +91,12 @@ namespace Astronomical_Processing_App
                     txtboxInput.Text = "";
                     edit_input.Visible = false;
                     display_searchbox.Visible = true;
-                    txtboxInput.ReadOnly = false;
+                    txtboxInput.ReadOnly = true;
+                    txtboxInput.Visible = false;
+                    txtbox_search.ReadOnly = false;
+                    txtbox_search.Visible = true;
                     index_label.Visible = false;
                     value_label.Visible= false;
-                    warning_label.Visible = true;
                     txtboxInput.Location = new Point(193, 53);
                 }
                 ;
@@ -109,8 +113,9 @@ namespace Astronomical_Processing_App
                     edit_input.ReadOnly = true;
                     txtboxInput.ReadOnly = true;
                     index_label.Visible = false;
+                    txtbox_search.ReadOnly = true;
+                    txtbox_search.Visible = false;
                     value_label.Visible = false;
-                    warning_label.Visible = false;
                     txtboxInput.Location = new Point(193, 53);
                     edit_input.Location = new Point(193, 83);
                 }
@@ -122,7 +127,11 @@ namespace Astronomical_Processing_App
             int lowBound = 0;
             int highBound = max;
             int target;
-            if (!(Int32.TryParse(txtboxInput.Text, out target)))
+            if (is_sorted == false)
+            {
+                bubble_sort(null, EventArgs.Empty);
+            }
+            if (!(Int32.TryParse(txtbox_search.Text, out target)))
             {
                 display_searchbox.Text = "You must enter an integer";
                 return;
@@ -178,6 +187,7 @@ namespace Astronomical_Processing_App
                     Application.DoEvents();
                     txtboxInput.Text = inner.ToString();
                     edit_input.Text = outer.ToString();
+                    is_sorted = true;
                 }
             }
         }
