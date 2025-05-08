@@ -63,6 +63,10 @@ namespace Astronomical_Processing_App
                     bubble_sort(null, EventArgs.Empty);
                 }
             };
+            randomise_data.Click += (s, args) =>
+            {
+                randomise_Data(null, EventArgs.Empty);
+            };
             editmode_btn.Click += (s, args) =>
             {
                 if (editmode_btn.Checked)
@@ -120,6 +124,22 @@ namespace Astronomical_Processing_App
                     value_label.Visible = false;
                     txtboxInput.Location = new Point(193, 53);
                     edit_input.Location = new Point(193, 83);
+                }
+            };
+        }
+        private void randomise_Data(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+            for (int i = 0; i < randomData.Length; i++)
+            {
+                randomData[i] = rand.Next(10, 90);
+            }
+            displaydata1.Click += (s, args) =>
+            {
+                displayData.Items.Clear();
+                for (int i = 0; i < randomData.Length; i++)
+                {
+                    displayData.Items.Add(randomData[i]);
                 }
             };
         }
