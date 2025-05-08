@@ -173,10 +173,11 @@
             // 
             // txtbox_search
             // 
-            this.txtbox_search.Location = new System.Drawing.Point(192, 53);
+            this.txtbox_search.Location = new System.Drawing.Point(191, 53);
             this.txtbox_search.Name = "txtbox_search";
             this.txtbox_search.Size = new System.Drawing.Size(121, 20);
             this.txtbox_search.TabIndex = 13;
+            this.txtbox_search.TextChanged += new System.EventHandler(this.txtbox_search_TextChanged);
             // 
             // Form1
             // 

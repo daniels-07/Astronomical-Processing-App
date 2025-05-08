@@ -73,6 +73,7 @@ namespace Astronomical_Processing_App
                     edit_input.Visible = true;
                     display_searchbox.Visible = true;
                     txtboxInput.ReadOnly = false;
+                    txtboxInput.Visible = true;
                     edit_input.ReadOnly = false;
                     index_label.Visible = true;
                     txtbox_search.ReadOnly = true;
@@ -112,6 +113,7 @@ namespace Astronomical_Processing_App
                     display_searchbox.Visible = false;
                     edit_input.ReadOnly = true;
                     txtboxInput.ReadOnly = true;
+                    txtboxInput.Visible = true;
                     index_label.Visible = false;
                     txtbox_search.ReadOnly = true;
                     txtbox_search.Visible = false;
@@ -283,6 +285,11 @@ namespace Astronomical_Processing_App
         }
 
         private void value_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbox_search_TextChanged(object sender, EventArgs e)
         {
 
         }
