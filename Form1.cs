@@ -35,6 +35,7 @@ namespace Astronomical_Processing_App
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // This generates random data and fills the array
             Random rand = new Random();
             for (int i = 0; i < randomData.Length; i++)
             {
@@ -48,6 +49,7 @@ namespace Astronomical_Processing_App
                     displayData.Items.Add(randomData[i]);
                 }
             };
+            // This code calls the search, edit and sort methods based on what mode is toggled.
             btn_search.Click += (s, args) =>
             {
                 if (searchmode_btn.Checked)
@@ -67,6 +69,7 @@ namespace Astronomical_Processing_App
             {
                 randomise_Data(null, EventArgs.Empty);
             };
+            // The code below changes the GUI structure when each individual button is toggled in order to switch between Search, Sort and Edit mode
             editmode_btn.Click += (s, args) =>
             {
                 if (editmode_btn.Checked)
@@ -127,6 +130,7 @@ namespace Astronomical_Processing_App
                 }
             };
         }
+        // Method to randomise data
         private void randomise_Data(object sender, EventArgs e)
         {
             Random rand = new Random();
@@ -143,12 +147,14 @@ namespace Astronomical_Processing_App
                 }
             };
         }
+        // Binary search method
         private void binary_Search(object sender, EventArgs e) 
         {
             int mid;
             int lowBound = 0;
             int highBound = max;
             int target;
+            // This if statement automatically sorts the data if it has not already been sorted
             if (is_sorted == false)
             {
                 bubble_sort(null, EventArgs.Empty);
@@ -190,6 +196,7 @@ namespace Astronomical_Processing_App
                 displayData.Items.Add(randomData[i]);
             }
         }
+        // Bubble sort method
         private void bubble_sort(object sender, EventArgs e) 
         {
             int temp = 0;
@@ -222,6 +229,7 @@ namespace Astronomical_Processing_App
                 displayData.Items.Add(randomData[i]);
             }
         }
+        // Edit array method
         private void editArray(object sender, EventArgs e)
         {
             //Parse the input from txtboxinput
