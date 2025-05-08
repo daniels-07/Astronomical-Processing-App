@@ -29,8 +29,6 @@ namespace Astronomical_Processing_App
         {
             InitializeComponent();
             searchmode_btn.Checked = true;
-
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,7 +44,7 @@ namespace Astronomical_Processing_App
                 displayData.Items.Clear();
                 for (int i = 0; i < randomData.Length; i++)
                 {
-                    displayData.Items.Add(randomData[i]);
+                    displayData.Items.Add($"{i}: {randomData[i]}");
                 }
             };
             // This code calls the search, edit and sort methods based on what mode is toggled.
@@ -138,14 +136,7 @@ namespace Astronomical_Processing_App
             {
                 randomData[i] = rand.Next(10, 90);
             }
-            displaydata1.Click += (s, args) =>
-            {
-                displayData.Items.Clear();
-                for (int i = 0; i < randomData.Length; i++)
-                {
-                    displayData.Items.Add(randomData[i]);
-                }
-            };
+            ShowArray();
         }
         // Binary search method
         private void binary_Search(object sender, EventArgs e) 
@@ -193,7 +184,7 @@ namespace Astronomical_Processing_App
             displayData.Items.Clear();
             for (int i = low; i < high; i++)
             {
-                displayData.Items.Add(randomData[i]);
+                displayData.Items.Add($"{i}: {randomData[i]}");
             }
         }
         // Bubble sort method
@@ -226,7 +217,7 @@ namespace Astronomical_Processing_App
             displayData.Items.Clear();
             for (int i = 0; i < max; i++)
             {
-                displayData.Items.Add(randomData[i]);
+                displayData.Items.Add($"{i}: {randomData[i]}");
             }
         }
         // Edit array method
