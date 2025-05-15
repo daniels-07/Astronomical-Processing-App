@@ -42,8 +42,17 @@
             this.index_label = new System.Windows.Forms.Label();
             this.txtbox_search = new System.Windows.Forms.TextBox();
             this.randomise_data = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.result_label = new System.Windows.Forms.Label();
+            this.Options_groupbox = new System.Windows.Forms.GroupBox();
+            this.mid_button = new System.Windows.Forms.RadioButton();
+            this.mode_button = new System.Windows.Forms.RadioButton();
+            this.average_button = new System.Windows.Forms.RadioButton();
+            this.range_button = new System.Windows.Forms.RadioButton();
+            this.calculateButton = new System.Windows.Forms.Button();
+            this.sequentialSearch_button = new System.Windows.Forms.RadioButton();
+            this.calculate_resultbox = new System.Windows.Forms.ListBox();
             this.mode_groupbox.SuspendLayout();
+            this.Options_groupbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // displayData
@@ -87,12 +96,13 @@
             // mode_groupbox
             // 
             this.mode_groupbox.BackColor = System.Drawing.SystemColors.Control;
+            this.mode_groupbox.Controls.Add(this.sequentialSearch_button);
             this.mode_groupbox.Controls.Add(this.sortmode_btn);
             this.mode_groupbox.Controls.Add(this.editmode_btn);
             this.mode_groupbox.Controls.Add(this.searchmode_btn);
             this.mode_groupbox.Location = new System.Drawing.Point(193, 127);
             this.mode_groupbox.Name = "mode_groupbox";
-            this.mode_groupbox.Size = new System.Drawing.Size(98, 87);
+            this.mode_groupbox.Size = new System.Drawing.Size(120, 110);
             this.mode_groupbox.TabIndex = 8;
             this.mode_groupbox.TabStop = false;
             this.mode_groupbox.Text = "Select mode";
@@ -190,21 +200,111 @@
             this.randomise_data.Text = "Randomise data";
             this.randomise_data.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // result_label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 180);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Results:";
+            this.result_label.AutoSize = true;
+            this.result_label.Location = new System.Drawing.Point(19, 180);
+            this.result_label.Name = "result_label";
+            this.result_label.Size = new System.Drawing.Size(45, 13);
+            this.result_label.TabIndex = 15;
+            this.result_label.Text = "Results:";
+            // 
+            // Options_groupbox
+            // 
+            this.Options_groupbox.Controls.Add(this.range_button);
+            this.Options_groupbox.Controls.Add(this.average_button);
+            this.Options_groupbox.Controls.Add(this.mode_button);
+            this.Options_groupbox.Controls.Add(this.mid_button);
+            this.Options_groupbox.Location = new System.Drawing.Point(335, 102);
+            this.Options_groupbox.Name = "Options_groupbox";
+            this.Options_groupbox.Size = new System.Drawing.Size(101, 111);
+            this.Options_groupbox.TabIndex = 16;
+            this.Options_groupbox.TabStop = false;
+            this.Options_groupbox.Text = "Calculate";
+            this.Options_groupbox.Enter += new System.EventHandler(this.Options_groupbox_Enter);
+            // 
+            // mid_button
+            // 
+            this.mid_button.AutoSize = true;
+            this.mid_button.Location = new System.Drawing.Point(6, 19);
+            this.mid_button.Name = "mid_button";
+            this.mid_button.Size = new System.Drawing.Size(82, 17);
+            this.mid_button.TabIndex = 0;
+            this.mid_button.TabStop = true;
+            this.mid_button.Text = "Mid-extreme";
+            this.mid_button.UseVisualStyleBackColor = true;
+            // 
+            // mode_button
+            // 
+            this.mode_button.AutoSize = true;
+            this.mode_button.Location = new System.Drawing.Point(6, 44);
+            this.mode_button.Name = "mode_button";
+            this.mode_button.Size = new System.Drawing.Size(52, 17);
+            this.mode_button.TabIndex = 1;
+            this.mode_button.TabStop = true;
+            this.mode_button.Text = "Mode";
+            this.mode_button.UseVisualStyleBackColor = true;
+            // 
+            // average_button
+            // 
+            this.average_button.AutoSize = true;
+            this.average_button.Location = new System.Drawing.Point(6, 67);
+            this.average_button.Name = "average_button";
+            this.average_button.Size = new System.Drawing.Size(65, 17);
+            this.average_button.TabIndex = 2;
+            this.average_button.TabStop = true;
+            this.average_button.Text = "Average";
+            this.average_button.UseVisualStyleBackColor = true;
+            // 
+            // range_button
+            // 
+            this.range_button.AutoSize = true;
+            this.range_button.Location = new System.Drawing.Point(6, 90);
+            this.range_button.Name = "range_button";
+            this.range_button.Size = new System.Drawing.Size(57, 17);
+            this.range_button.TabIndex = 3;
+            this.range_button.TabStop = true;
+            this.range_button.Text = "Range";
+            this.range_button.UseVisualStyleBackColor = true;
+            // 
+            // calculateButton
+            // 
+            this.calculateButton.Location = new System.Drawing.Point(335, 24);
+            this.calculateButton.Name = "calculateButton";
+            this.calculateButton.Size = new System.Drawing.Size(75, 23);
+            this.calculateButton.TabIndex = 17;
+            this.calculateButton.Text = "Calculate";
+            this.calculateButton.UseVisualStyleBackColor = true;
+            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
+            // 
+            // sequentialSearch_button
+            // 
+            this.sequentialSearch_button.AutoSize = true;
+            this.sequentialSearch_button.Location = new System.Drawing.Point(6, 84);
+            this.sequentialSearch_button.Name = "sequentialSearch_button";
+            this.sequentialSearch_button.Size = new System.Drawing.Size(112, 17);
+            this.sequentialSearch_button.TabIndex = 3;
+            this.sequentialSearch_button.TabStop = true;
+            this.sequentialSearch_button.Text = "Sequential Search";
+            this.sequentialSearch_button.UseVisualStyleBackColor = true;
+            // 
+            // calculate_resultbox
+            // 
+            this.calculate_resultbox.FormattingEnabled = true;
+            this.calculate_resultbox.Location = new System.Drawing.Point(338, 56);
+            this.calculate_resultbox.Name = "calculate_resultbox";
+            this.calculate_resultbox.Size = new System.Drawing.Size(97, 43);
+            this.calculate_resultbox.TabIndex = 18;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 240);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(448, 240);
+            this.Controls.Add(this.calculate_resultbox);
+            this.Controls.Add(this.calculateButton);
+            this.Controls.Add(this.Options_groupbox);
+            this.Controls.Add(this.result_label);
             this.Controls.Add(this.randomise_data);
             this.Controls.Add(this.txtbox_search);
             this.Controls.Add(this.index_label);
@@ -221,6 +321,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.mode_groupbox.ResumeLayout(false);
             this.mode_groupbox.PerformLayout();
+            this.Options_groupbox.ResumeLayout(false);
+            this.Options_groupbox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,7 +344,15 @@
         private System.Windows.Forms.Label index_label;
         private System.Windows.Forms.TextBox txtbox_search;
         private System.Windows.Forms.Button randomise_data;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label result_label;
+        private System.Windows.Forms.GroupBox Options_groupbox;
+        private System.Windows.Forms.RadioButton range_button;
+        private System.Windows.Forms.RadioButton average_button;
+        private System.Windows.Forms.RadioButton mode_button;
+        private System.Windows.Forms.RadioButton mid_button;
+        private System.Windows.Forms.Button calculateButton;
+        private System.Windows.Forms.RadioButton sequentialSearch_button;
+        private System.Windows.Forms.ListBox calculate_resultbox;
     }
 }
 

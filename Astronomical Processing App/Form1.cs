@@ -12,9 +12,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// Daniel Shadbolt, Sprint 1
+// Daniel Shadbolt, Sprint 2
 // Date: 15/05/2025
-// Version: 1.0
+// Version: 2.0
 // Astronomical Processing Data
 // This program randomly generates data to simulate data gathered by an observatory which can be sorted, edited and searched, the data is stored in an array with 24 elements.
 
@@ -63,6 +63,10 @@ namespace Astronomical_Processing_App
                 {
                     bubble_sort(null, EventArgs.Empty);
                 }
+                else if (sequentialSearch_button.Checked)
+                {
+                    sequential_search(txtboxInput.Text, EventArgs.Empty);
+                }
             };
             randomise_data.Click += (s, args) =>
             {
@@ -87,6 +91,7 @@ namespace Astronomical_Processing_App
                     value_label.Visible = true;
                     txtboxInput.Location = new Point(193, 65);
                     edit_input.Location = new Point(193, 100);
+                    result_label.Visible = true;
                 }
                 ;
             };
@@ -105,6 +110,7 @@ namespace Astronomical_Processing_App
                     index_label.Visible = false;
                     value_label.Visible= false;
                     txtboxInput.Location = new Point(193, 53);
+                    result_label.Visible = true;
                 }
                 ;
             };
@@ -126,6 +132,49 @@ namespace Astronomical_Processing_App
                     value_label.Visible = false;
                     txtboxInput.Location = new Point(193, 53);
                     edit_input.Location = new Point(193, 83);
+                    result_label.Visible = false;
+                }
+            };
+            sequentialSearch_button.Click += (s, args) =>
+            {
+                if (sequentialSearch_button.Checked)
+                {
+                    btn_search.Text = "Search";
+                    txtboxInput.Text = "";
+                    edit_input.Visible = false;
+                    display_searchbox.Visible = true;
+                    txtboxInput.ReadOnly = true;
+                    txtboxInput.Visible = false;
+                    txtbox_search.ReadOnly = false;
+                    txtbox_search.Visible = true;
+                    index_label.Visible = false;
+                    value_label.Visible = false;
+                    txtboxInput.Location = new Point(193, 53);
+                    result_label.Visible = true;
+                }
+            };
+            // This code allows the user to select if they wish to calculate the mid extreme, mode, average or range
+            calculateButton.Click += (s, args) =>
+            {
+                if (mid_button.Checked)
+                {
+                    calculate_mid_extreme(null, EventArgs.Empty);
+                }
+                if (mode_button.Checked)
+                {
+                    calculate_mode(null, EventArgs.Empty);
+                }
+                if (average_button.Checked)
+                {
+                    calculate_average(null, EventArgs.Empty);
+                }
+                if (range_button.Checked)
+                {
+                    calculate_range(null, EventArgs.Empty);
+                }
+                if (!mid_button.Checked && !mode_button.Checked && !average_button.Checked && !range_button.Checked)
+                {
+                    calculate_resultbox.Text = "Please select an option";
                 }
             };
         }
@@ -240,6 +289,78 @@ namespace Astronomical_Processing_App
             //Display the updated array
             ShowArray();
         }
+        private void sequential_search(object sender, EventArgs e)
+        {
+            string input = txtbox_search.Text.Trim();
+            int sequentialTarget;
+            if (int.TryParse(txtbox_search.Text, out sequentialTarget))
+            {
+                bool isFound = false;
+
+                for (int i = 0; i < randomData.Length; i++)
+                {
+                    if (randomData[i] == sequentialTarget)
+                    {
+                        display_searchbox.Text = $"Found at index {i}";
+                         isFound = true;
+                    }
+
+                }
+                if (!isFound)
+                {
+                    display_searchbox.Text = "Not found";
+                }
+            }
+            if (!(int.TryParse(txtbox_search.Text, out sequentialTarget)))
+            {
+                display_searchbox.Text = "Please enter an integer";
+            }
+        }
+        private void calculate_mid_extreme(object sender, EventArgs e)
+        {
+            int min = randomData.Min();
+            int max = randomData.Max();
+            double midextreme = (min + max) / 2.0;
+            calculate_resultbox.Items.Clear();
+            calculate_resultbox.Items.Add($"midextreme: {midextreme}");
+        }
+        private void calculate_mode(object sender, EventArgs e)
+        {
+            var grouped = randomData.GroupBy(n => n).ToList();
+            int maxcount = grouped.Max(g => g.Count());
+
+            List<int> modes = grouped
+                .Where(g => g.Count() == maxcount)
+                .Select(g => g.Key)
+                .ToList();
+
+            calculate_resultbox.Items.Clear();
+            if (modes.Count == 1)
+            {
+                calculate_resultbox.Items.Add($"Mode: {modes}");
+            }
+            else 
+            {
+                calculate_resultbox.Items.Add($"Modes:");
+                foreach (var mode in modes)
+                {
+                    calculate_resultbox.Items.Add(mode.ToString());
+                }
+            }
+
+        }
+        private void calculate_average(object sender, EventArgs e)
+        {
+            double average = randomData.Average();
+            calculate_resultbox.Items.Clear();
+            calculate_resultbox.Items.Add($"Average: {average}");
+        }
+        private void calculate_range(object sender, EventArgs e)
+        {
+            int range = randomData.Max() - randomData.Min();
+            calculate_resultbox.Items.Clear();
+            calculate_resultbox.Items.Add($"Range: {range}");
+        }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -302,6 +423,36 @@ namespace Astronomical_Processing_App
         }
 
         private void txtbox_search_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Options_groupbox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
 
         }
