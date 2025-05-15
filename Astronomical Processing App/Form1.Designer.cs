@@ -42,6 +42,7 @@
             this.index_label = new System.Windows.Forms.Label();
             this.txtbox_search = new System.Windows.Forms.TextBox();
             this.randomise_data = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.mode_groupbox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -189,11 +190,21 @@
             this.randomise_data.Text = "Randomise data";
             this.randomise_data.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 180);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Results:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 240);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.randomise_data);
             this.Controls.Add(this.txtbox_search);
             this.Controls.Add(this.index_label);
@@ -231,6 +242,7 @@
         private System.Windows.Forms.Label index_label;
         private System.Windows.Forms.TextBox txtbox_search;
         private System.Windows.Forms.Button randomise_data;
+        private System.Windows.Forms.Label label1;
     }
 }
 

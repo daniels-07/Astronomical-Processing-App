@@ -6,13 +6,14 @@ using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Daniel Shadbolt, Sprint 1
-// Date: 1/05/2025
+// Date: 15/05/2025
 // Version: 1.0
 // Astronomical Processing Data
 // This program randomly generates data to simulate data gathered by an observatory which can be sorted, edited and searched, the data is stored in an array with 24 elements.
@@ -143,7 +144,7 @@ namespace Astronomical_Processing_App
         {
             int mid;
             int lowBound = 0;
-            int highBound = max;
+            int highBound = max - 1;
             int target;
             // This if statement automatically sorts the data if it has not already been sorted
             if (is_sorted == false)
@@ -158,13 +159,14 @@ namespace Astronomical_Processing_App
             while (lowBound <= highBound) // Check “<” or “<=”
             {
                 // Display list
-                ShowArrayRange(lowBound, highBound);
                 // Find the mid-point
                 mid = (lowBound + highBound) / 2;
                 if (randomData[mid] == target)
                 {
                     // Target has been found
                     display_searchbox.Text = "Found at index " + mid;
+                    displayData.Items.Clear();
+                    displayData.Items.Add($"{mid}: {randomData[mid]}");
                     return;
                 }
                 else if (randomData[mid] >= target)
@@ -177,15 +179,6 @@ namespace Astronomical_Processing_App
                 }
             }
             display_searchbox.Text = "Not Found, try again.";
-        }
-        // Method to display Array
-        private void ShowArrayRange(int low, int high)
-        {
-            displayData.Items.Clear();
-            for (int i = low; i < high; i++)
-            {
-                displayData.Items.Add($"{i}: {randomData[i]}");
-            }
         }
         // Bubble sort method
         private void bubble_sort(object sender, EventArgs e) 
