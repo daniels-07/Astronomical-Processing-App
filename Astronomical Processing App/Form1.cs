@@ -92,6 +92,8 @@ namespace Astronomical_Processing_App
                     txtboxInput.Location = new Point(193, 65);
                     edit_input.Location = new Point(193, 100);
                     result_label.Visible = true;
+                    toolTip2.SetToolTip(edit_input, "Enter the value you wish to add to the dataset");
+                    toolTip2.SetToolTip(txtboxInput, "Enter the index of the entry you wish to edit");
                 }
                 ;
             };
@@ -133,6 +135,8 @@ namespace Astronomical_Processing_App
                     txtboxInput.Location = new Point(193, 53);
                     edit_input.Location = new Point(193, 83);
                     result_label.Visible = false;
+                    toolTip2.SetToolTip(edit_input, "Displays each row of data");
+                    toolTip2.SetToolTip(txtboxInput, "Displays each item within the current row");
                 }
             };
             sequentialSearch_button.Click += (s, args) =>
