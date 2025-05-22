@@ -341,7 +341,7 @@ namespace Astronomical_Processing_App
             calculate_resultbox.Items.Clear();
             if (modes.Count == 1)
             {
-                calculate_resultbox.Items.Add($"Mode: {modes}");
+                calculate_resultbox.Items.Add($"Mode: {string.Join(", ", modes)}");
             }
             else 
             {
